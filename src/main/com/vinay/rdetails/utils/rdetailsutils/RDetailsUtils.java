@@ -28,7 +28,7 @@ public class RDetailsUtils {
         return false;
     }
 
-    public static String stringToUpper(String data){
+    public static String firstStringToUpper(String data){
         data.trim();
         int x = data.length();
         return data.substring(0,1).toUpperCase().concat(data.substring(1,x));

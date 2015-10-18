@@ -37,8 +37,8 @@ public class SignUpServlet extends HttpServlet {
             transferErrorMessage(request, response, RDetailsConstants.PASSWORD + " " + RDetailsConstants.REQUIRES_MINIMUM_6_CHARACTERS);
         } else {
 
-            signUpBean.setUserName(userName);
-            signUpBean.setEmail(email);
+            signUpBean.setUserName(RDetailsUtils.firstStringToUpper(userName));
+            signUpBean.setEmail(RDetailsUtils.stringToLower(email));
             signUpBean.setPassword(password);
             int rows = SignUpDao.addUser(signUpBean);
 

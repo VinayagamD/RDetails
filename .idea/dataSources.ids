@@ -11,14 +11,15 @@
       <column name="ProfileId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="ProfilePictures" sqlType="BLOB" precision="65535" scale="0" nullable="false" jdbcType="-4"/>
       <column name="UserID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Private" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
       <primary-key name="PRIMARY" columns="ProfileId"/>
       <foreign-key name="rdetailprofiles_ibfk_1" columns="UserID" ref-table="RDetailsUser" ref-schema="" ref-catalog="RDetailDb" ref-columns="UserID" update-rule="0" delete-rule="3" deferrability="2"/>
     </table>
     <table name="RDetailsUser" schema="" catalog="RDetailDb" type="TABLE">
       <column name="UserID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="UserName" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
-      <column name="Email" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
-      <column name="Password" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UserName" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Password" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="UserID"/>
       <exported-key name="rdetailprofiles_ibfk_1" table="RDetailProfiles" schema="" catalog="RDetailDb" columns="UserID"/>
       <index name="UserName" unique="true" columns="UserName,Email"/>
