@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="RDetails:war exploded">
+    <output-path>$PROJECT_DIR$/target/Rdetails</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="RDetails" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.webjars:bootstrap:3.3.5" />
+          <element id="library" level="project" name="Maven: org.webjars:jquery:2.1.4" />
+          <element id="library" level="project" name="Maven: org.webjars:font-awesome:4.4.0" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.37" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/Rdetails/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="RDetails/web/Web" />
+    </root>
+  </artifact>
+</component>

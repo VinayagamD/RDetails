@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - RDetailDB@localhost" uuid="ba140401-0fbf-4465-86e0-cac6037c6d53">
+    <database-info product="MySQL" version="5.5.42" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="RDetailDb"/>
+    <table name="RDetailProfiles" schema="" catalog="RDetailDb" type="TABLE">
+      <column name="ProfileId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ProfilePictures" sqlType="BLOB" precision="65535" scale="0" nullable="false" jdbcType="-4"/>
+      <column name="UserID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ProfileId"/>
+      <foreign-key name="rdetailprofiles_ibfk_1" columns="UserID" ref-table="RDetailsUser" ref-schema="" ref-catalog="RDetailDb" ref-columns="UserID" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="RDetailsUser" schema="" catalog="RDetailDb" type="TABLE">
+      <column name="UserID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="UserName" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Email" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Password" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="UserID"/>
+      <exported-key name="rdetailprofiles_ibfk_1" table="RDetailProfiles" schema="" catalog="RDetailDb" columns="UserID"/>
+      <index name="UserName" unique="true" columns="UserName,Email"/>
+    </table>
+  </data-source>
+</component>
