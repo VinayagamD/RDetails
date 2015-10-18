@@ -1,5 +1,6 @@
 <%@ page import="main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants" %>
 <%@ page import="static main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants.ERROR" %>
+<%@ page import="main.com.vinay.rdetails.utils.dto.RDetailsMessage" %>
 <%--
   Created by IntelliJ IDEA.
   User: Vinayagam
@@ -38,6 +39,7 @@
     <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--%>
 </head>
 <body>
+
 <div class="container">
     <div class="row">
         <div class="col-lg-12 col-md-12">
@@ -91,21 +93,24 @@
                         <div class="text-center" >
                              <button type="submit" class="btn btn-success"><strong><i class="fa fa-sign-in">&nbsp;Login</i></strong></button>
                         </div>
-                    </form>
-                    <c:catch var="error">
-                        <% String errorMessage = (String) session.getAttribute(ERROR);
-                            if (!errorMessage.isEmpty() || errorMessage != null) {%>
+                        <div>
+                            <c:catch var="error">
+                                <%String errorMessage = ((RDetailsMessage)request.getAttribute(ERROR)).getErrorMessage();
+                                    if (!errorMessage.isEmpty() || errorMessage != null) {%>
 
-                        <div class="alert alert-danger alert-dismissable text-center">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <% out.write((String) session.getAttribute(ERROR)); %>
+                                <div class="alert alert-danger alert-dismissable text-center">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <%=errorMessage%>
+                                </div>
+
+                                <%}%>
+                            </c:catch>
+                            <c:if test="${error != null}">
+                                <p>${error}</p>
+                            </c:if>
                         </div>
+                    </form>
 
-                        <%}%>
-                    </c:catch>
-                    <c:if test="${error != null}">
-                        <p>${error}</p>
-                    </c:if>
                 </div>
             </div>
 

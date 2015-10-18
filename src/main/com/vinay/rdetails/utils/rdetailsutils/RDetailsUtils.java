@@ -28,4 +28,15 @@ public class RDetailsUtils {
         return false;
     }
 
+    public static String stringToUpper(String data){
+        data.trim();
+        int x = data.length();
+        return data.substring(0,1).toUpperCase().concat(data.substring(1,x));
+    }
+
+    public static String stringToLower(String data){
+        data.trim();
+        return data.toLowerCase();
+    }
+
 }

@@ -98,7 +98,7 @@
     <div class="row">
 
         <c:catch var="error">
-            <% LoginBean loginBean = (LoginBean)session.getAttribute(LOGIN_OBJECT) ;
+            <% LoginBean loginBean = (LoginBean)request.getAttribute(LOGIN_OBJECT) ;
                 String userName = loginBean.getUserName();
                 if (!userName.isEmpty() || userName != null) {%>
             <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">

@@ -25,6 +25,7 @@ public class SignUpDao {
 
         try {
             connection = DBConnection.createConnection();
+            System.out.println(signUpBean.getUserName()+" "+signUpBean.getPassword()+" "+signUpBean.getEmail());
             preparedStatement = connection.prepareStatement(SignUpDaoConstants.SIGN_UP_QUERY );
             preparedStatement.setString(1,signUpBean.getUserName());
             preparedStatement.setString(2,signUpBean.getPassword());
@@ -43,8 +44,8 @@ public class SignUpDao {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            return 0;
         }
+        return 0;
 
     }
 

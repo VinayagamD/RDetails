@@ -1,5 +1,6 @@
 <%@ page import="main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants" %>
 <%@ page import="static main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants.ERROR" %>
+<%@ page import="main.com.vinay.rdetails.utils.dto.RDetailsMessage" %>
 <%--
   Created by IntelliJ IDEA.
   User: Vinayagam
@@ -84,11 +85,11 @@
                         <div class="form-group">
                             <label for="username"><i class="fa fa-user">&nbsp;User Name</i></label>
                             <input type="text" class="form-control" id="username" placeholder="UserName"
-                                   name="<%= RDetailsConstants.USER_NAME %>">
+                                   name="<%=RDetailsConstants.USER_NAME %>">
                         </div>
                         <div class="form-group">
                             <label for="email"><i class="fa fa-envelope">&nbsp;Email Address</i></label>
-                            <input type="text" class="form-control" id="email" placeholder="Email" name="<%=RDetailsConstants.EMAIL%>>">
+                            <input type="text" class="form-control" id="email" placeholder="Email" name="<%=RDetailsConstants.EMAIL%>">
                         </div>
                         <div class="form-group">
                             <label for="password"><i class="fa fa-lock">&nbsp;Password</i></label>
@@ -99,23 +100,26 @@
                             <button type="submit" class="btn btn-success"><strong><i class="fa fa-save">&nbsp;Register</i></strong>
                             </button>
                         </div>
+                        <div>
+                        <c:catch var="error">
+                            <% String errorMessage = ((RDetailsMessage)request.getAttribute(ERROR)).getErrorMessage();
+                                if (!errorMessage.isEmpty() || errorMessage != null) {%>
+
+                            <div class="alert alert-danger alert-dismissable text-center">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <%=errorMessage%>
+                            </div>
+
+                            <%}%>
+                        </c:catch>
+                        <c:if test="${error != null}">
+                            <p>${error}</p>
+                        </c:if>
+                        </div>
 
 
                     </form>
-                    <c:catch var="error">
-                        <% String errorMessage = (String) session.getAttribute(ERROR);
-                            if (!errorMessage.isEmpty() || errorMessage != null) {%>
 
-                        <div class="alert alert-danger alert-dismissable text-center">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <% out.write((String) session.getAttribute(ERROR)); %>
-                        </div>
-
-                        <%}%>
-                    </c:catch>
-                    <c:if test="${error != null}">
-                        <p>${error}</p>
-                    </c:if>
 
 
                 </div>

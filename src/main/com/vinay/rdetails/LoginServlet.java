@@ -2,6 +2,7 @@ package main.com.vinay.rdetails;
 
 import main.com.vinay.rdetails.utils.dao.LoginDao;
 import main.com.vinay.rdetails.utils.dto.LoginBean;
+import main.com.vinay.rdetails.utils.dto.RDetailsMessage;
 import main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants;
 import main.com.vinay.rdetails.utils.rdetailsutils.RDetailsUtils;
 
@@ -28,7 +29,7 @@ public class LoginServlet extends HttpServlet {
             loginBean.setPassword(password);
             loginBean = LoginDao.authenticate(loginBean);
             if (loginBean.isValidUser()) {
-                request.getSession().setAttribute(RDetailsConstants.LOGIN_OBJECT, loginBean);
+                request.setAttribute(RDetailsConstants.LOGIN_OBJECT, loginBean);
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
             } else {
                 transferErrorMessage(request, response, RDetailsConstants.INVALID_USER_CREDENTIALS);
@@ -41,8 +42,9 @@ public class LoginServlet extends HttpServlet {
     }
 
     public static void transferErrorMessage(HttpServletRequest request, HttpServletResponse response, String message) throws ServletException, IOException {
-        request.getSession().setAttribute(RDetailsConstants.ERROR, message);
+        RDetailsMessage rDetailsMessage = new RDetailsMessage();
+        rDetailsMessage.setErrorMessage(message);
+        request.setAttribute(RDetailsConstants.ERROR, rDetailsMessage);
         request.getRequestDispatcher("/login.jsp").forward(request, response);
-
     }
 }

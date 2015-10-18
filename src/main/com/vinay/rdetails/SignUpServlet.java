@@ -1,6 +1,7 @@
 package main.com.vinay.rdetails;
 
 import main.com.vinay.rdetails.utils.dao.SignUpDao;
+import main.com.vinay.rdetails.utils.dto.RDetailsMessage;
 import main.com.vinay.rdetails.utils.dto.SignUpBean;
 import main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants;
 import main.com.vinay.rdetails.utils.rdetailsutils.RDetailsUtils;
@@ -24,6 +25,7 @@ public class SignUpServlet extends HttpServlet {
         String userName = request.getParameter(RDetailsConstants.USER_NAME);
         String password = request.getParameter(RDetailsConstants.PASSWORD);
         String email = request.getParameter(RDetailsConstants.EMAIL);
+        System.out.println(userName+" "+password+" "+email);
 
         if (RDetailsUtils.checkEmptyString(userName) || RDetailsUtils.checkEmptyString(password) || RDetailsUtils.checkEmptyString(email)) {
             transferErrorMessage(request, response, RDetailsConstants.FILL_EMPTY_FIELDS);
@@ -35,9 +37,9 @@ public class SignUpServlet extends HttpServlet {
             transferErrorMessage(request, response, RDetailsConstants.PASSWORD + " " + RDetailsConstants.REQUIRES_MINIMUM_6_CHARACTERS);
         } else {
 
-            signUpBean.setUserName(request.getParameter(userName));
-            signUpBean.setEmail(request.getParameter(email));
-            signUpBean.setPassword(request.getParameter(password));
+            signUpBean.setUserName(userName);
+            signUpBean.setEmail(email);
+            signUpBean.setPassword(password);
             int rows = SignUpDao.addUser(signUpBean);
 
             System.out.println(rows);
@@ -57,7 +59,9 @@ public class SignUpServlet extends HttpServlet {
     }
 
     public static void transferErrorMessage(HttpServletRequest request, HttpServletResponse response, String message) throws ServletException, IOException {
-        request.getSession().setAttribute(RDetailsConstants.ERROR, message);
+        RDetailsMessage rDetailsMessage = new RDetailsMessage();
+        rDetailsMessage.setErrorMessage(message);
+        request.setAttribute(RDetailsConstants.ERROR, rDetailsMessage);
         request.getRequestDispatcher("/signup.jsp").forward(request, response);
 
     }
