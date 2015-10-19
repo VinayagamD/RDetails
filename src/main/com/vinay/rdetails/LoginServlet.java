@@ -30,6 +30,7 @@ public class LoginServlet extends HttpServlet {
             loginBean = LoginDao.authenticate(loginBean);
             if (loginBean.isValidUser()) {
                 request.setAttribute(RDetailsConstants.LOGIN_OBJECT, loginBean);
+                request.getSession().setAttribute(RDetailsConstants.LOGIN_OBJECT,loginBean);
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
             } else {
                 transferErrorMessage(request, response, RDetailsConstants.INVALID_USER_CREDENTIALS);

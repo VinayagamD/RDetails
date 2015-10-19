@@ -42,26 +42,67 @@
 
 <body>
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-10 col-md-10">
-            <h1><img src="images/rdetails.png" alt="details">RDetails</h1>
 
-            <h2 class="h2"></h2>
-        </div>
-        <div class="col-lg-2 col-md-2">
-            <div class="row" style="margin-top: 20px">
-                <div class="col-lg-6 col-md-6" style="padding: 20px"><a href="<c:url value="login.jsp"/>"
-                                                                        style="text-decoration: none;margin: 20px;"><i
-                        class="fa fa-user fa-lg">Login</i></a></div>
-                <div class="col-lg-6 col-md-6" style="padding: 20px"><a href="<c:url value="signup.jsp"/>"
-                                                                        style="text-decoration: none;margin: 20px;">
-                    <i class="fa fa-user-plus fa-lg">Register</i></a></div>
+        <c:catch var="error">
+            <div class="container">
+                <div class="row">
+
+                <% Object object =  request.getAttribute(LOGIN_OBJECT);
+
+               if(object == null) {%>
+
+            <div class="col-lg-10 col-md-10">
+                <h1><img src="images/rdetails.png" alt="details">RDetails</h1>
+
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <div class="row" style="margin-top: 20px">
+                    <div class="col-lg-6 col-md-6" style="padding: 20px"><a href="<c:url value="login.jsp"/>"
+                                                                            style="text-decoration: none;margin: 20px;"><i
+                            class="fa fa-user fa-lg">Login</i></a></div>
+                    <div class="col-lg-6 col-md-6" style="padding: 20px"><a href="<c:url value="signup.jsp"/>"
+                                                                            style="text-decoration: none;margin: 20px;">
+                        <i class="fa fa-user-plus fa-lg">Register</i></a></div>
+                </div>
+            </div>
+
+            <%}else {%>
+            <%LoginBean loginBean = (LoginBean)request.getAttribute(LOGIN_OBJECT);
+                String userName = loginBean.getUserName();
+                if(userName==null||userName.isEmpty()){%>
+
+                    <div class="col-lg-10 col-md-10">
+                        <h1><img src="images/rdetails.png" alt="details">RDetails</h1>
+
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-lg-6 col-md-6" style="padding: 20px"><a href="<c:url value="login.jsp"/>"
+                                                                                    style="text-decoration: none;margin: 20px;"><i
+                                    class="fa fa-user fa-lg">Login</i></a></div>
+                            <div class="col-lg-6 col-md-6" style="padding: 20px"><a href="<c:url value="signup.jsp"/>"
+                                                                                    style="text-decoration: none;margin: 20px;">
+                                <i class="fa fa-user-plus fa-lg">Register</i></a></div>
+                        </div>
+                    </div>
+
+            <%} else {%>
+
+            <div class="col-lg-12 col-md-12">
+                <h1><img src="images/rdetails.png" alt="details">RDetails</h1>
+
+                <h2 class="h2"></h2>
+            </div>
+
+            <%}%>
+            <%}%>
             </div>
         </div>
+        </c:catch>
+        <c:if test="${error != null}">
+            <p>${error}</p>
+        </c:if>
 
-    </div>
-</div>
 
 
 <nav class="navbar navbar-inverse">
@@ -81,12 +122,23 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right" id="navbarmain">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#"><i class="fa fa-home ">&nbsp;Home</i></a></li>
+                <li class="active"><a href="<c:url value="index.jsp"/>"><i class="fa fa-home ">&nbsp;Home</i></a></li>
                 <li><a href="#"><i class="fa fa fa-exclamation-circle ">&nbsp;About Us</i></a></li>
                 <li><a href="#"><i class="fa fa-briefcase">&nbsp;Products</i></a></li>
                 <li><a href="#"><i class="fa fa-paper-plane ">&nbsp;Contact Us</i></a></li>
                 <li><a href="#"><i class="fa fa-pencil-square">&nbsp;Feedback</i></a></li>
-                <li><a href="#"><i class="fa fa-sign-out">&nbsp;Logout</i></a></li>
+                <c:catch var="error">
+                    <% LoginBean loginBean = (LoginBean) request.getAttribute(LOGIN_OBJECT);
+                        String userName = loginBean.getUserName();
+                        if (!userName.isEmpty() || userName != null) {%>
+
+                    <li><a href="#"><i class="fa fa-user">&nbsp;ProfileDetails</i></a></li>
+                    <li><a href="#"><i class="fa fa-sign-out">&nbsp;Logout</i></a></li>
+                    <%}%>
+                </c:catch>
+                <c:if test="${error != null}">
+                    <p>${error}</p>
+                </c:if>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -98,17 +150,18 @@
     <div class="row">
 
         <c:catch var="error">
-            <% LoginBean loginBean = (LoginBean)request.getAttribute(LOGIN_OBJECT) ;
+            <% LoginBean loginBean = (LoginBean) request.getAttribute(LOGIN_OBJECT);
                 String userName = loginBean.getUserName();
                 if (!userName.isEmpty() || userName != null) {%>
             <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
                 <div class="panel panel-success">
                     <div class="panel-heading text-center">Success</div>
                     <div class="panel-body text-center">
-                        <p>  Welcome!<%=userName%></p>
-                        </div>
+                        <p> Welcome!<%=userName%>
+                        </p>
                     </div>
                 </div>
+            </div>
 
 
             <%}%>
