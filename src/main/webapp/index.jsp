@@ -67,8 +67,8 @@
             </div>
 
             <%}else {%>
-            <%LoginBean loginBean = (LoginBean)request.getAttribute(LOGIN_OBJECT);
-                String userName = loginBean.getUserName();
+            <%
+                String userName = ((LoginBean)object).getUserName();
                 if(userName==null||userName.isEmpty()){%>
 
                     <div class="col-lg-10 col-md-10">
