@@ -1,7 +1,6 @@
 <%@ page import="main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants" %>
-<%@ page import="static main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants.ERROR" %>
-<%@ page import="static main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants.LOGIN_OBJECT" %>
 <%@ page import="main.com.vinay.rdetails.utils.dto.LoginBean" %>
+<%@ page errorPage="error.jsp" %>
 <%--
   Created by IntelliJ IDEA.
   User: Vinayagam
@@ -72,7 +71,8 @@
                 <li><a href="#"><i class="fa fa-briefcase">&nbsp;Products</i></a></li>
                 <li><a href="#"><i class="fa fa-paper-plane ">&nbsp;Contact Us</i></a></li>
                 <li><a href="#"><i class="fa fa-pencil-square">&nbsp;Feedback</i></a></li>
-                <li><a href="#"><i class="fa fa-sign-out">&nbsp;Logout</i></a></li>
+                <li><a href="<c:url value="profileDetails.jsp"/>"><i class="fa fa-user">&nbsp;ProfileDetails</i></a></li>
+                <li><a href="<c:url value="logout"/>"><i class="fa fa-sign-out">&nbsp;Logout</i></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -88,7 +88,20 @@
                    Choose Operation
                </div>
                <div>
-                    <%=((LoginBean)session.getAttribute(RDetailsConstants.LOGIN_OBJECT)).getUserName() %>
+                   <c:catch var="error">
+                    <%Object object=session.getAttribute(RDetailsConstants.LOGIN_OBJECT);
+                     if (object == null){
+                         System.out.println("LoadTransfer");%>
+
+                       <c:redirect url="error.jsp"/>
+                       <%}else {%>
+
+                       <%}%>
+                   </c:catch>
+                   <c:if test="${error != null}">
+                       <c:redirect url="error.jsp"/>
+                       <%System.out.println("Error");%>
+                   </c:if>
                </div>
            </div>
        </div>
