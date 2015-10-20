@@ -71,7 +71,8 @@
                 <li><a href="#"><i class="fa fa-briefcase">&nbsp;Products</i></a></li>
                 <li><a href="#"><i class="fa fa-paper-plane ">&nbsp;Contact Us</i></a></li>
                 <li><a href="#"><i class="fa fa-pencil-square">&nbsp;Feedback</i></a></li>
-                <li><a href="<c:url value="profileDetails.jsp"/>"><i class="fa fa-user">&nbsp;ProfileDetails</i></a></li>
+                <li><a href="<c:url value="profileDetails.jsp"/>"><i class="fa fa-user">&nbsp;ProfileDetails</i></a>
+                </li>
                 <li><a href="<c:url value="logout"/>"><i class="fa fa-sign-out">&nbsp;Logout</i></a></li>
             </ul>
         </div>
@@ -82,30 +83,62 @@
 
 <div class="container">
     <div class="row">
-       <div class="col-lg-4 col-lg-offset-2 col-md-8 col-md-offset-2">
-           <div class="panel panel-primary">
-               <div class="panel-heading">
-                   Choose Operation
-               </div>
-               <div>
-                   <c:catch var="error">
-                    <%Object object=session.getAttribute(RDetailsConstants.LOGIN_OBJECT);
-                     if (object == null){
-                         System.out.println("LoadTransfer");%>
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center">
+                    <h4 class="h4">
+                        Choose Operation
+                    </h4>
+                </div>
 
-                       <c:redirect url="error.jsp"/>
-                       <%}else {%>
+                <c:catch var="error">
+                    <%
+                        Object object = session.getAttribute(RDetailsConstants.LOGIN_OBJECT);
+                        if (object == null) {
+                    %>
+                    <c:redirect url="login.jsp"/>
+                    <%} else {%>
+                    <div class="panel-body">
+                        <div class="row">
 
-                       <%}%>
-                   </c:catch>
-                   <c:if test="${error != null}">
-                       <c:redirect url="error.jsp"/>
-                       <%System.out.println("Error");%>
-                   </c:if>
-               </div>
-           </div>
-       </div>
+                            <div class="col-lg-6 col-md-6 text-center">
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        View Profile photos
+                                    </div>
+                                    <div class="panel-body bg-warning">
+                                        <img src="images/profile.jpg" class="img-circle" width="200" height="200"/>
+                                        <a href="#" class="btn btn-danger"> <i class="fa fa-arrow-left">&nbsp;View
+                                            Profile</i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 text-center">
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        Upload Profile photos
+                                    </div>
+                                    <div class="panel-body bg-warning">
+                                        <img src="images/icon-512-pink-white.png" class="img-circle" width="200" height="200" style="background-color: #FFFFFF;"/>
+                                        <a href="#" class="btn btn-danger"> <i class="fa">Upload Profile&nbsp;<i
+                                                class="fa fa-arrow-right"></i></i> </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <%}%>
+                </c:catch>
+                <c:if test="${error != null}">
+                    <c:redirect url="error.jsp"/>
+                </c:if>
+            </div>
+        </div>
     </div>
+</div>
 </div>
 
 
