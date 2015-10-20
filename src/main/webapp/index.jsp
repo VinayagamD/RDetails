@@ -132,7 +132,8 @@
                         String userName = loginBean.getUserName();
                         if (!userName.isEmpty() || userName != null) {%>
 
-                    <li><a href="<c:url value="profileDetails.jsp"/>"><i class="fa fa-user">&nbsp;ProfileDetails</i></a></li>
+                    <li><a href="<c:url value="profileDetails.jsp"/>"><i class="fa fa-user">&nbsp;ProfileDetails</i></a>
+                    </li>
                     <li><a href="<c:url value="logout"/>"><i class="fa fa-sign-out">&nbsp;Logout</i></a></li>
                     <%}%>
                 </c:catch>
