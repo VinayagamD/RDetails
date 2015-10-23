@@ -14,9 +14,6 @@ public class SignUpDao {
 
     private interface SignUpDaoConstants{
         String SIGN_UP_QUERY = "INSERT INTO RDetailsUser ("+ RDetailsConstants.USER_NAME+","+RDetailsConstants.PASSWORD+","+RDetailsConstants.EMAIL+") VALUES (?,?,?) ;";
-
-
-
     }
 
     public static int addUser(SignUpBean signUpBean){

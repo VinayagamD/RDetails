@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class DBConnection {
 
     private interface DBConnectionConstants{
-        String DB_URL ="jdbc:mysql://localhost:3306/RDetailDb";
+        String DB_URL = "jdbc:mysql://localhost:8889/RDetailDb";
         String DB_USER= "vinay";
         String DB_PASSWORD = "drago";
     }

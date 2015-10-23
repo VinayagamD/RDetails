@@ -31,7 +31,7 @@ public class RDetailsUtils {
     public static String firstStringToUpper(String data){
         data.trim();
         int x = data.length();
-        return data.substring(0,1).toUpperCase().concat(data.substring(1,x));
+        return data.substring(0, 1).toUpperCase().concat((data.substring(1, x)).toLowerCase());
     }
 
     public static String stringToLower(String data){

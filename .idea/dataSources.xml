@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2831898432">
+  <component name="DataSourceManagerImpl" format="xml" hash="1759011864">
     <data-source source="LOCAL" name="MySQL - RDetailDB@localhost" uuid="ba140401-0fbf-4465-86e0-cac6037c6d53">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/RDetailDB</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:8889/RDetailDB</jdbc-url>
       <driver-properties>
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />
