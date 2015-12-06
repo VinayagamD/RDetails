@@ -1,4 +1,4 @@
-package main.com.vinay.rdetails.utils.dbutils;
+package com.vinay.rdetails.utils.dbutils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,7 +21,8 @@ public class DBConnection {
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
-        Connection connection = DriverManager.getConnection(DBConnectionConstants.DB_URL, DBConnectionConstants.DB_USER, DBConnectionConstants.DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(DBConnectionConstants.DB_URL,
+                DBConnectionConstants.DB_USER, DBConnectionConstants.DB_PASSWORD);
         return connection;
     }
 }

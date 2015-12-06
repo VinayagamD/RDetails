@@ -1,9 +1,9 @@
-package main.com.vinay.rdetails.utils.dao;
+package com.vinay.rdetails.utils.dao;
 
 
-import main.com.vinay.rdetails.utils.dbutils.DBConnection;
-import main.com.vinay.rdetails.utils.dto.SignUpBean;
-import main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants;
+import com.vinay.rdetails.utils.dbutils.DBConnection;
+import com.vinay.rdetails.utils.dto.SignUpBean;
+import com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants;
 
 import java.sql.*;
 
@@ -13,7 +13,7 @@ import java.sql.*;
 public class SignUpDao {
 
     private interface SignUpDaoConstants{
-        String SIGN_UP_QUERY = "INSERT INTO RDetailsUser ("+ RDetailsConstants.USER_NAME+","+RDetailsConstants.PASSWORD+","+RDetailsConstants.EMAIL+") VALUES (?,?,?) ;";
+        String SIGN_UP_QUERY = String.format("INSERT INTO RDetailsUser (%s,%s,%s) VALUES (?,?,?) ;", RDetailsConstants.USER_NAME, RDetailsConstants.PASSWORD, RDetailsConstants.EMAIL);
     }
 
     public static int addUser(SignUpBean signUpBean){

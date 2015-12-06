@@ -1,4 +1,4 @@
-package main.com.vinay.rdetails.utils.rdetailsutils;
+package com.vinay.rdetails.utils.rdetailsutils;
 
 /**
  * Created by Vinayagam on 10/17/15.

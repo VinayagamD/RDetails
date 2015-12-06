@@ -1,5 +1,5 @@
-<%@ page import="main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants" %>
-<%@ page import="main.com.vinay.rdetails.utils.dto.LoginBean" %>
+<%@ page import="com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants" %>
+<%@ page import="com.vinay.rdetails.utils.dto.LoginBean" %>
 <%@ page errorPage="error.jsp" %>
 <%--
   Created by IntelliJ IDEA.
@@ -34,6 +34,26 @@
     <script src=" https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script>
+        $(document).ready(function () {
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#preview').attr('src', e.target.result);
+                    };
+                    ;
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#fileUpload").change(function () {
+                readURL(this);
+            });
+        });
+    </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--%>
@@ -77,6 +97,8 @@
             </ul>
         </div>
         <!-- /.navbar-collapse -->
+
+
     </div>
 </nav>
 
@@ -87,7 +109,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading text-center">
                     <h4 class="h4">
-                        Choose Operation
+                        Choose ProfilePicture
                     </h4>
                 </div>
 
@@ -101,28 +123,29 @@
                     <div class="panel-body">
                         <div class="row">
 
-                            <div class="col-lg-6 col-md-6 text-center">
+                            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 text-center">
                                 <div class="panel panel-success">
                                     <div class="panel-heading">
                                         View Profile photos
                                     </div>
-                                    <div class="panel-body bg-warning">
-                                        <img src="images/profile.jpg" class="img-circle" width="200" height="200"/>
-                                        <a href="#" class="btn btn-danger"> <i class="fa fa-arrow-left">&nbsp;View
+                                    <div class="panel-body bg-warning text-center">
+                                        <form action="profileupload" method="post" ENCTYPE="multipart/form-data">
+                                            <div>
+                                                <input type="file" id="fileUpload" accept=".png, .jpg, .jpeg"
+                                                       name="<%=RDetailsConstants.PROFILE_IMAGE%>"
+                                                       placeholder="<%=RDetailsConstants.PROFILE_IMAGE%>"/>
+                                            </div>
+                                            <div style="margin: 10px 0">
+                                                <img id="preview" class="mg-responsive center-block img-circle"
+                                                     width="300px" height="300px">
+                                            </div>
+                                            <div>
+                                                <button type="submit" class="btn btn-danger"><i class="fa fa-upload">
+                                                    &nbsp;View
                                             Profile</i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 text-center">
-                                <div class="panel panel-success">
-                                    <div class="panel-heading">
-                                        Upload Profile photos
-                                    </div>
-                                    <div class="panel-body bg-warning">
-                                        <img src="images/icon-512-pink-white.png" class="img-circle" width="200" height="200" style="background-color: #FFFFFF;"/>
-                                        <a href="#" class="btn btn-danger"> <i class="fa">Upload Profile&nbsp;<i
-                                                class="fa fa-arrow-right"></i></i> </a>
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +161,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 
 

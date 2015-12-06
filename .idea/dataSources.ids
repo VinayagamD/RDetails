@@ -1,10 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - RDetailDB@localhost" uuid="ba140401-0fbf-4465-86e0-cac6037c6d53">
+  <data-source name="MySQL - RDetailDb@localhost" uuid="15735a8c-7e23-45c4-8a4a-55f01ac9f1f7">
     <database-info product="MySQL" version="5.5.42" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.2">
+      <schema id="1" name="RDetailDB"/>
+      <table id="2" parent="1" name="RDetailsUser"/>
+      <table id="3" parent="1" name="RDetailProfiles"/>
+      <column id="4" parent="2" name="UserID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="5" parent="2" name="UserName">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="6" parent="2" name="Email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="7" parent="2" name="Password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <index id="8" parent="2" name="UserName">
+        <columns>UserName
+Email</columns>
+        <unique>1</unique>
+      </index>
+      <key id="9" parent="2" name="PRIMARY">
+        <columns>UserID</columns>
+        <primary>1</primary>
+      </key>
+      <key id="10" parent="2" name="UserName">
+        <columns>UserName
+Email</columns>
+        <underlying-index>UserName</underlying-index>
+      </key>
+      <column id="11" parent="3" name="ProfileId">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="12" parent="3" name="ProfilePictures">
+        <mandatory>1</mandatory>
+        <data-type>longblob</data-type>
+      </column>
+      <column id="13" parent="3" name="UserID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="14" parent="3" name="Private">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <key id="15" parent="3" name="PRIMARY">
+        <columns>ProfileId</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="16" parent="3" name="rdetailprofiles_ibfk_1">
+        <columns>UserID</columns>
+        <ref-key>rdetaildb.RDetailsUser|UserID</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
   </data-source>
 </component>

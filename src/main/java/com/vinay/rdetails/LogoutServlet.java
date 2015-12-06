@@ -1,4 +1,4 @@
-package main.com.vinay.rdetails;
+package com.vinay.rdetails;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

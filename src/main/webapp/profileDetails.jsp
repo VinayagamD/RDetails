@@ -1,5 +1,5 @@
-<%@ page import="main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants" %>
-<%@ page import="main.com.vinay.rdetails.utils.dto.LoginBean" %>
+<%@ page import="com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants" %>
+<%@ page import="com.vinay.rdetails.utils.dto.LoginBean" %>
 <%@ page errorPage="error.jsp" %>
 <%--
   Created by IntelliJ IDEA.
@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="panel-body bg-warning">
                                         <img src="images/icon-512-pink-white.png" class="img-circle" width="200" height="200" style="background-color: #FFFFFF;"/>
-                                        <a href="#" class="btn btn-danger"> <i class="fa">Upload Profile&nbsp;<i
+                                        <a href="uploadprofile.jsp" class="btn btn-danger"> <i class="fa">Upload Profile&nbsp;<i
                                                 class="fa fa-arrow-right"></i></i> </a>
                                     </div>
                                 </div>
@@ -138,7 +138,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 
 

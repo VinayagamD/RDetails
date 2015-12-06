@@ -1,7 +1,7 @@
-<%@ page import="main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants" %>
-<%@ page import="static main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants.ERROR" %>
-<%@ page import="static main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants.LOGIN_OBJECT" %>
-<%@ page import="main.com.vinay.rdetails.utils.dto.LoginBean" %>
+<%@ page import="com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants" %>
+<%@ page import="static com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants.ERROR" %>
+<%@ page import="static com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants.LOGIN_OBJECT" %>
+<%@ page import="com.vinay.rdetails.utils.dto.LoginBean" %>
 <%--
   Created by IntelliJ IDEA.
   User: Vinayagam

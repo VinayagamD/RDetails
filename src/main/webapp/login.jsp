@@ -1,6 +1,6 @@
-<%@ page import="main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants" %>
-<%@ page import="static main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants.ERROR" %>
-<%@ page import="main.com.vinay.rdetails.utils.dto.RDetailsMessage" %>
+<%@ page import="com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants" %>
+<%@ page import="static com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants.ERROR" %>
+<%@ page import="com.vinay.rdetails.utils.dto.RDetailsMessage" %>
 <%--
   Created by IntelliJ IDEA.
   User: Vinayagam

@@ -1,4 +1,4 @@
-package main.com.vinay.rdetails.utils.rdetailsutils;
+package com.vinay.rdetails.utils.rdetailsutils;
 
 /**
  * Created by Vinayagam on 10/16/15.
@@ -23,5 +23,10 @@ public interface RDetailsConstants {
 
     String INVALID_USER_CREDENTIALS = "Invalid User Credentials";
     String LOGIN_OBJECT = "LoginObject";
+
+    String PROFILE_IMAGE = "ProfileImage";
+
+    String PROFILE_PICTURES = "ProfilePictures";
+    String PRIVATE = "Private";
 
 }

@@ -1,10 +1,10 @@
-package main.com.vinay.rdetails;
+package com.vinay.rdetails;
 
-import main.com.vinay.rdetails.utils.dao.LoginDao;
-import main.com.vinay.rdetails.utils.dto.LoginBean;
-import main.com.vinay.rdetails.utils.dto.RDetailsMessage;
-import main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants;
-import main.com.vinay.rdetails.utils.rdetailsutils.RDetailsUtils;
+import com.vinay.rdetails.utils.dao.LoginDao;
+import com.vinay.rdetails.utils.dto.LoginBean;
+import com.vinay.rdetails.utils.dto.RDetailsMessage;
+import com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants;
+import com.vinay.rdetails.utils.rdetailsutils.RDetailsUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +22,7 @@ public class LoginServlet extends HttpServlet {
         LoginBean loginBean = new LoginBean();
         String userName = request.getParameter(RDetailsConstants.USER_NAME);
         String password = request.getParameter(RDetailsConstants.PASSWORD);
+        System.out.println(String.format("UserName:%s & Password:%s", userName, password));
         if (RDetailsUtils.checkEmptyString(userName) || RDetailsUtils.checkEmptyString(password)) {
             transferErrorMessage(request, response, RDetailsConstants.FILL_EMPTY_FIELDS);
         } else {

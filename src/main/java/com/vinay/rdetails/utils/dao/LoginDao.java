@@ -1,8 +1,8 @@
-package main.com.vinay.rdetails.utils.dao;
+package com.vinay.rdetails.utils.dao;
 
-import main.com.vinay.rdetails.utils.dbutils.DBConnection;
-import main.com.vinay.rdetails.utils.dto.LoginBean;
-import main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants;
+import com.vinay.rdetails.utils.dbutils.DBConnection;
+import com.vinay.rdetails.utils.dto.LoginBean;
+import com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants;
 
 import java.sql.*;
 
@@ -57,7 +57,7 @@ public class LoginDao {
         return loginBean;
     }
 
-    public static void closeConnection(Connection connection,Statement statement,ResultSet resultSet)throws SQLException{
+    private static void closeConnection(Connection connection, Statement statement, ResultSet resultSet) throws SQLException {
         if(resultSet != null){
             resultSet.close();
         }

@@ -1,4 +1,4 @@
-package main.com.vinay.rdetails.utils.dto;
+package com.vinay.rdetails.utils.dto;
 
 /**
  * Created by Vinayagam on 10/16/15.

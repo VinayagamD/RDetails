@@ -1,4 +1,4 @@
-package main.com.vinay.rdetails.utils.rdetailsutils;
+package com.vinay.rdetails.utils.rdetailsutils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,7 +28,7 @@ public class RDetailsUtils {
         return false;
     }
 
-    public static String firstStringToUpper(String data){
+    public static String firstStringToUpper(String data) {
         data.trim();
         int x = data.length();
         return data.substring(0, 1).toUpperCase().concat((data.substring(1, x)).toLowerCase());

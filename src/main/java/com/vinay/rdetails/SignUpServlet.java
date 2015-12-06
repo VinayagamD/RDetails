@@ -1,11 +1,11 @@
-package main.com.vinay.rdetails;
+package com.vinay.rdetails;
 
-import main.com.vinay.rdetails.utils.dao.SignUpDao;
-import main.com.vinay.rdetails.utils.dto.RDetailsMessage;
-import main.com.vinay.rdetails.utils.dto.SignUpBean;
-import main.com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants;
-import main.com.vinay.rdetails.utils.rdetailsutils.RDetailsUtils;
-import main.com.vinay.rdetails.utils.rdetailsutils.UserDataLength;
+import com.vinay.rdetails.utils.dao.SignUpDao;
+import com.vinay.rdetails.utils.dto.RDetailsMessage;
+import com.vinay.rdetails.utils.dto.SignUpBean;
+import com.vinay.rdetails.utils.rdetailsutils.RDetailsConstants;
+import com.vinay.rdetails.utils.rdetailsutils.RDetailsUtils;
+import com.vinay.rdetails.utils.rdetailsutils.UserDataLength;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
